@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Ballet extends MusicalShow {
     protected Person choreographer;
 

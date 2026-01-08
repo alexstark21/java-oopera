@@ -3,7 +3,8 @@ public class Theatre {
     public static void main(String[] args) {
         Actor batoeva = new Actor("Надежда", "Батоева", Gender.FEMALE, 170);
         Actor ermakov = new Actor("Андрей", "Ермаков", Gender.MALE, 175);
-        Actor shakirova = new Actor("Рената", "Шакирова", Gender.MALE, 173);
+        Actor shakirova = new Actor("Рената", "Шакирова", Gender.FEMALE, 173);
+        Actor shakirov = new Actor("Ренат", "Шакирова", Gender.MALE, 176);
         Director gabitov = new Director("Иркин", "Габитов", Gender.MALE, 280);
         Director gergiev = new Director("Валерий", "Гергиев", Gender.MALE, 340);
         Person musicAuthor = new Person("Пётр", "Чайковский", Gender.MALE);
@@ -26,6 +27,8 @@ public class Theatre {
         theQueenOfSpades.addActor(ermakov);
         theNutCracker.addActor(batoeva);
         theNutCracker.addActor(shakirova);
+        theNutCracker.addActor(shakirov);
+
 
         // Для каждого спектакля выведите на экран список актёров
         System.out.println("Список актёров спектакля " + usualShow.title);
@@ -46,6 +49,7 @@ public class Theatre {
 
         // Попробуйте заменить в другом спектакле несуществующего актёра
         theNutCracker.changeActor(ermakov, "Бат");
+        theNutCracker.changeActor(ermakov, "Шакирова");
         System.out.println("Список актёров балета " + theNutCracker.title);
         theNutCracker.printListOfActors();
         System.out.println();

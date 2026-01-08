@@ -1,23 +1,16 @@
 import java.util.ArrayList;
 
 public class Show {
-    String title;
-    int duration;
-    Director director;
-    ArrayList<Actor> listOfActors;
+    protected String title;
+    protected int duration;
+    protected Director director;
+    protected ArrayList<Actor> listOfActors;
 
     public Show(String title, int duration, Director director) {
         this.title = title;
         this.duration = duration;
         this.director = director;
         listOfActors = new ArrayList<>();
-    }
-
-    public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
-        this.title = title;
-        this.duration = duration;
-        this.director = director;
-        this.listOfActors = listOfActors;
     }
 
     public void printListOfActors(){
@@ -35,12 +28,23 @@ public class Show {
     }
 
     public void changeActor(Actor actor, String whoChangeSurname){
+        int count = 0;
+        int index = -1;
+
         for (int i = 0; i < listOfActors.size(); i++) {
             if (listOfActors.get(i).surname.equals(whoChangeSurname)){
-                listOfActors.set(i, actor);
-                return;
+                count++;
+                index = i;
             }
         }
-        System.out.println("Нет актёра с фамилией - " + whoChangeSurname + "!");
+
+        if (count == 0) {
+            System.out.println("Нет актёра с фамилией - " + whoChangeSurname + "!");
+        } else if (count > 1) {
+            System.out.println("Ошибка: найдено несколько актеров с фамилией " +
+                    whoChangeSurname + "!");
+        } else {
+            listOfActors.set(index, actor);
+        }
     }
 }
